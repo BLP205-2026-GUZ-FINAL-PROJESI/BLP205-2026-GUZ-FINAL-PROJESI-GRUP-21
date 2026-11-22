@@ -5,5 +5,5 @@
 2. Modül: yığın (stack) ve kuyruk (queue) |  Ceren Koç - 202507012053
 
 3. Modül: sıralama ve arama algoritmaları | Nisa Medine Kuzay - 202507012099
-   
-5. Modül: graf ve kampüs rota analizi | İdil Derin Yarçın - 202507012058
+
+4. Modül: graf ve kampüs rota analizi | İdil Derin Yarçın - 202507012058
