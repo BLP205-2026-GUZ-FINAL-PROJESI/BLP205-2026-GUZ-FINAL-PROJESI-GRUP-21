@@ -6,4 +6,4 @@
 
 3. Modül: sıralama ve arama algoritmaları | Nisa Medine Kuzay - 202507012099
    
-5. Modül: graf ve kampüs rota analizi | İdil Derin Yarçın - 
+5. Modül: graf ve kampüs rota analizi | İdil Derin Yarçın - 202507012058
