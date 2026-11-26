@@ -155,7 +155,7 @@ void kitaplariGeriListele() {
 
 // ---------- Bellek temizleme
 
-// Listedeki tum dugumleri delete eder
+// Listedeki tum dugumleri  delete eder
 void kitapListesiniTemizle() {
     Kitap* gezen = kitapBas;
     while (gezen != NULL) {

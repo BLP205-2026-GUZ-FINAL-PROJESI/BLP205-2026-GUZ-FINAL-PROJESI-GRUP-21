@@ -1,0 +1,3 @@
+/workspaces/BLP205-2026-GUZ-FINAL-PROJESI-GRUP-21/build/CMakeFiles/my_app.dir
+/workspaces/BLP205-2026-GUZ-FINAL-PROJESI-GRUP-21/build/CMakeFiles/edit_cache.dir
+/workspaces/BLP205-2026-GUZ-FINAL-PROJESI-GRUP-21/build/CMakeFiles/rebuild_cache.dir
