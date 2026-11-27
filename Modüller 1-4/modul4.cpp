@@ -1,4 +1,4 @@
-// MODUL 4: GRAF (GRAPH) VERI YAPISI & KAMPUS ROTA ANALIZI
+// Idil Derin Yarcin : MODUL 4: GRAF (GRAPH) VERI YAPISI & KAMPUS ROTA ANALIZI
 // Dugumler: kampus birimleri, kenar agirliklari: yuruyus mesafesi (metre)
 // Graf 2 boyutlu komsuluk matrisi ile tutulur (0 = dogrudan yol yok).
 
@@ -22,7 +22,7 @@ const string birimler[N] = {
     "Konferans Salonu"
 };
 
-// Yurume mesafeleri (metre). Graf yonsuz oldugu icin matris simetriktir.
+// Yurume mesafeleri (metre). Graf yonsuz oldugu icin matris simetrik.
 const int komsuluk[N][N] = {
     //  0    1    2    3    4    5
     {   0, 150, 200, 100,   0,   0 },  // 0 Merkez Kutuphane
@@ -33,7 +33,7 @@ const int komsuluk[N][N] = {
     {   0,   0,   0, 250, 140,   0 }   // 5 Konferans Salonu
 };
 
-// ---------- Yardimci fonksiyonlar ----------
+//Yardimci fonksiyonlar
 
 void girdiTemizle() {
     cin.clear();
@@ -46,7 +46,7 @@ void birimleriListele() {
         cout << "  " << i + 1 << ". " << birimler[i] << "\n";
 }
 
-// Kullanicidan 1..N arasi birim secimi alir, 0-tabanli indeks dondurur.
+// Kullanicidan bina (birim) alir
 int birimSec(const string& mesaj) {
     int s;
     while (true) {
@@ -58,7 +58,7 @@ int birimSec(const string& mesaj) {
     }
 }
 
-// ---------- 1. Komsuluk matrisini goruntule ----------
+//Komsuluk Matrisi
 
 void matrisYazdir() {
     cout << "\n  Komsuluk Matrisi (mesafe, metre; 0 = dogrudan yol yok)\n\n";
@@ -75,7 +75,7 @@ void matrisYazdir() {
         cout << "  B" << i + 1 << " = " << birimler[i] << "\n";
 }
 
-// ---------- 2. BFS ----------
+//BFS (Genislik Oncelikli Arama)
 
 void bfs(int baslangic) {
     bool ziyaret[N] = { false };
@@ -103,7 +103,7 @@ void bfs(int baslangic) {
     cout << "\n";
 }
 
-// ---------- 3. DFS ----------
+//DFS (Derinlik Oncelikli Arama) 
 
 void dfsOzyinele(int u, bool ziyaret[], bool& ilk) {
     ziyaret[u] = true;
@@ -124,7 +124,7 @@ void dfs(int baslangic) {
     cout << "\n";
 }
 
-// ---------- 4. Dijkstra ----------
+//Dijkstra (Baslangic dugumden diger dugumlere en kisa yollari bulma!)
 
 void yolYazdir(int onceki[], int hedef) {
     if (onceki[hedef] == -1) {
@@ -148,7 +148,7 @@ void dijkstra(int baslangic, int hedef) {
     mesafe[baslangic] = 0;
 
     for (int adim = 0; adim < N; adim++) {
-        // Henuz kesinlesmemis en kucuk mesafeli dugumu bul
+        // Henuz kesinlesmemis en kucuk mesafeli dugum
         int u = -1;
         for (int i = 0; i < N; i++)
             if (!kesin[i] && mesafe[i] != INF && (u == -1 || mesafe[i] < mesafe[u]))
@@ -179,7 +179,7 @@ void dijkstra(int baslangic, int hedef) {
     cout << "\n";
 }
 
-// ---------- Modul menusu ----------
+//Modul menusu
 
 void modul4() {
     int secim;
@@ -224,8 +224,7 @@ void modul4() {
     } while (secim != 0);
 }
 
-// Bagimsiz test icin main. Ana programa entegre ederken main'i silip
-// yalnizca modul4() fonksiyonunu ana menunuzden cagirin.
+// Bagimsiz test icin main. Ana programa entegre ederken main silinecek!
 int main() {
     int secim;
     do {
