@@ -1,27 +1,20 @@
-// BLP Veri Yapilari Final Projesi 1. Modul Baslangici
-// Modul 1: Cift yonlu dogrusal bagli liste (kitap katalogu)
-// Bu dosya ilk surumdur, baslangic ve son ekleme, ileri ve geri listeleme, bellek temizleme.
+// Modul 1 :::: Cift yonlu dogrusal bagli liste (kitap katalogu)
+// Bu dosya ilk surumdur: baslangic ve son ekleme, ileri ve geri listeleme, bellek temizleme.
+
+
+// *** Dosya revize edildi (27.11.26)... .h ve diğer dosyalarla integrasyonu duzeltildi.***
 
 #include <iostream>
 #include <sstream>
 #include <string>
+#include "modul1.h"
 using namespace std;
 
-// Kitap kaydi ayni zamanda listenin dugumudur
-struct Kitap {
-    int id;
-    string ad;
-    string yazar;
-    int sayfa;
-    Kitap* next;
-    Kitap* prev;
-};
-
-// Listenin ilk ve son dugumu
+// Listenin ilk ve son dugumu (modul1.h icinde extern olarak bildirildi)
 Kitap* kitapBas = NULL;
 Kitap* kitapSon = NULL;
 
-// ---------- Yardimci fonksiyonlar
+// ---> Yardimci fonksiyonlar
 
 // Klavyeden tam sayi okur, gecersiz girdide tekrar sorar
 int okuTamSayi(const string& mesaj) {
@@ -75,10 +68,14 @@ Kitap* kitapOlustur(int id, const string& ad, const string& yazar, int sayfa) {
     return yeni;
 }
 
-// ---------- Ekleme islemleri
+// ---> Ekleme islemleri
 
 // Kitabi listenin basina ekler, basarili ise true doner
 bool kitapBasaEkle(int id, const string& ad, const string& yazar, int sayfa) {
+    if (id <= 0) {
+        cout << "[!] Kitap ID pozitif olmalidir." << endl;
+        return false;
+    }
     if (idVarMi(id)) {
         cout << "[!] Bu ID zaten kayitli: " << id << endl;
         return false;
@@ -99,6 +96,10 @@ bool kitapBasaEkle(int id, const string& ad, const string& yazar, int sayfa) {
 
 // Kitabi listenin sonuna ekler, basarili ise true doner
 bool kitapSonaEkle(int id, const string& ad, const string& yazar, int sayfa) {
+    if (id <= 0) {
+        cout << "[!] Kitap ID pozitif olmalidir." << endl;
+        return false;
+    }
     if (idVarMi(id)) {
         cout << "[!] Bu ID zaten kayitli: " << id << endl;
         return false;
@@ -116,7 +117,7 @@ bool kitapSonaEkle(int id, const string& ad, const string& yazar, int sayfa) {
     return true;
 }
 
-// ---------- Listeleme islemleri
+// --->  Listeleme islemleri
 
 void kitapYazdir(const Kitap* k) {
     cout << "ID: " << k->id
@@ -153,9 +154,9 @@ void kitaplariGeriListele() {
     }
 }
 
-// ---------- Bellek temizleme
+// ---> Bellek temizleme
 
-// Listedeki tum dugumleri  delete eder
+// Listedeki tum dugumleri delete eder
 void kitapListesiniTemizle() {
     Kitap* gezen = kitapBas;
     while (gezen != NULL) {
@@ -167,13 +168,15 @@ void kitapListesiniTemizle() {
     kitapSon = NULL;
 }
 
-// ---------- Ornek veri ve menu
+// ---> Ornek veri ve menu
 
 void ornekKitaplariYukle() {
-    kitapSonaEkle(101, "Algoritmalar", "Ali Yilmaz", 350);
-    kitapSonaEkle(102, "Veri Yapilari", "Ayse Demir", 420);
-    kitapSonaEkle(103, "C++ ile Programlama", "Mehmet Kaya", 280);
     kitapSonaEkle(104, "Isletim Sistemleri", "Zeynep Arslan", 510);
+    kitapSonaEkle(101, "Algoritmalar", "Ali Yilmaz", 350);
+    kitapSonaEkle(106, "Ag Guvenligi", "Can Ozturk", 230);
+    kitapSonaEkle(103, "C++ ile Programlama", "Mehmet Kaya", 280);
+    kitapSonaEkle(105, "Veritabani Sistemleri", "Elif Sahin", 460);
+    kitapSonaEkle(102, "Veri Yapilari", "Ayse Demir", 420);
 }
 
 void kitapBasaEkleMenu() {
@@ -235,12 +238,4 @@ void modul1Menu() {
                 cout << "[!] Gecersiz secim, 0 ile 9 arasinda bir sayi giriniz." << endl;
         }
     }
-}
-
-// Gecici  modul tek basina denenebilsin diye var, entegrasyonda ana programdaki menu kullanilcak
-int main() {
-    ornekKitaplariYukle();
-    modul1Menu();
-    kitapListesiniTemizle();
-    return 0;
 }
