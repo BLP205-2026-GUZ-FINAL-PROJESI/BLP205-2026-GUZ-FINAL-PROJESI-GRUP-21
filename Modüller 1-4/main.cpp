@@ -1,11 +1,11 @@
-// Suan henuz modul 1'i derleyebiliyor.
+// Suan henuz modul 1, 3 ve 4'ü derleyebiliyor, modullerini yukleyen arkadaslar icin duzenleme yapildi
 // Grup ana menuyu birlestirirken bu dosya ortak main.cpp ile degistirilecek.
 
 #include <iostream>
 #include "modul1.h"
 // #include "modul2.h"
- #include "modul3.h"
-// #include "modul4.h"
+#include "modul3.h"
+#include "modul4.h"
 using namespace std;
 
 int main() {
@@ -30,9 +30,7 @@ int main() {
             case 2:
                 cout << "[!] Bu modul henuz eklenmedi." << endl;
                 break;
-            case 4:
-                cout << "[!] Bu modul henuz eklenmedi." << endl;
-                break;
+            case 4: modul4Menu(); break;
             case 0:
                 break;
             default:
