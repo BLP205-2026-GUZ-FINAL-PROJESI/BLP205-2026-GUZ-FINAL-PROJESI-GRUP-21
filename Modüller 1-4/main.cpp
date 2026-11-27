@@ -4,7 +4,7 @@
 #include <iostream>
 #include "modul1.h"
 // #include "modul2.h"
-// #include "modul3.h"
+ #include "modul3.h"
 // #include "modul4.h"
 using namespace std;
 
@@ -26,9 +26,7 @@ int main() {
 
         switch (secim) {
             case 1: modul1Menu(); break;
-            case 3:
-                cout << "[!] Bu modul henuz eklenmedi." << endl;
-                break;
+            case 3: modul3Menu(); break;
             case 2:
                 cout << "[!] Bu modul henuz eklenmedi." << endl;
                 break;
